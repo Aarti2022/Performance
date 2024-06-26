@@ -8,7 +8,7 @@ for url in "${urls[@]}"
 do
    echo "Generating report for $url"
    # Run Lighthouse and generate HTML report
-   lighthouse "$url" --output html --documents/generatedreport"$(echo $url | sed 's/https\?:\/\///').html"
+   lighthouse "$url" --output html --C:\Users\arti.tripathi\Desktop\Python_Script\Reports"$(echo $url | sed 's/https\?:\/\///').html"
 done
 
 echo "Reports generated successfully!"
