@@ -1,9 +1,4 @@
-pipeline {
-    agent any
- stages {
-        stage('Checkout') {
-            steps {
-               #!/bin/bash
+#!/bin/bash
 
 # List of URLs 
 declare -a urls=("https://fasb.org/" "https://fasb.org/about-us" "https://fasb.org/about-us/standard-setting-process" "https://fasb.org/about-us/post-implementation-review-process" "https://fasb.org/about-us/board-members" "https://fasb.org/standards/accounting-standard-updates" "https://fasb.org/standards/accounting-standard-updated-effective-date" "https://fasb.org/projects/current-projects" "https://fasb.org/projects/recently-completed-projects")
@@ -16,8 +11,4 @@ do
    Lighthouse "$url" --output html --C:\Users\arti.tripathi\Desktop\Python_Script\Reports"$(echo $url | sed 's/https\?:\/\///').html"
 done
 
-echo "Reports generated successfully!"     
-            }
-        }
-    }
-}
+echo "Reports generated successfully!"
