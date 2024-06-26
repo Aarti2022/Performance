@@ -28,9 +28,10 @@ pipeline {
                 script {
                     if (isUnix()) {
                         sh 'test.sh'
-                    } else {
-                        bat 'bat.sh'
-                    }
+                    } 
+                    // else {
+                    //     bat 'bat.sh'
+                    // }
                 }
             }
         }
