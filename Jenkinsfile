@@ -1,37 +1,22 @@
 pipeline {
     agent any
-
-    stages {
+ stages {
         stage('Checkout') {
             steps {
-                // Checkout the repository from GitHub
-                git url: 'https://github.com/Aarti2022/Python_Script.git', branch: 'main'
-            }
-        }
-        
-        stage('Install Dependencies') {
-            steps {
-                // Install necessary dependencies (if any)
-                script {
-                    if (isUnix()) {
-                        sh 'pip install pandas'
-                    } else {
-                        bat 'pip install pandas'
-                    }
-                }
-            }
-        }
-        
-        stage('Run Script') {
-            steps {
-                // Execute the Python script
-                script {
-                    if (isUnix()) {
-                        sh 'python compare_csv_files.py'
-                    } else {
-                        bat 'python compare_csv_files.py'
-                    }
-                }
+               #!/bin/bash
+
+# List of URLs 
+declare -a urls=("https://fasb.org/" "https://fasb.org/about-us" "https://fasb.org/about-us/standard-setting-process" "https://fasb.org/about-us/post-implementation-review-process" "https://fasb.org/about-us/board-members" "https://fasb.org/standards/accounting-standard-updates" "https://fasb.org/standards/accounting-standard-updated-effective-date" "https://fasb.org/projects/current-projects" "https://fasb.org/projects/recently-completed-projects")
+
+# Loop through URLs
+for url in "${urls[@]}"
+do
+   echo "Generating report for $url"
+   # Run Lighthouse and generate HTML report
+   Lighthouse "$url" --output html --C:\Users\arti.tripathi\Desktop\Python_Script\Reports"$(echo $url | sed 's/https\?:\/\///').html"
+done
+
+echo "Reports generated successfully!"     
             }
         }
     }
