@@ -9,19 +9,6 @@ pipeline {
             }
         }
         
-        // stage('Install Dependencies') {
-        //     steps {
-        //         // Install necessary dependencies (if any)
-        //         script {
-        //             if (isUnix()) {
-        //                 // sh 'pip install pandas'
-        //             } else {
-        //                 bat 'pip install pandas'
-        //             }
-        //         }
-        //     }
-        // }
-        
         stage('Run Script') {
             steps {
                 // Execute the shell script
@@ -33,6 +20,20 @@ pipeline {
                     //     bat 'bat.sh'
                     // }
                 }
+            }
+        }
+        
+        stage('Archive Report') {
+            steps {
+                // Archive the generated report
+                archiveArtifacts artifacts: 'C:\Users\arti.tripathi\Desktop\Python_Script\Reports'
+            }
+        }
+        
+        stage('Publish HTML Report') {
+            steps {
+                // Publish the generated HTML report
+                publishHTML([reportDir: 'C:\Users\arti.tripathi\Desktop\Python_Script\Reports', reportFiles: 'index.html', reportName: 'Chrome Report'])
             }
         }
     }
