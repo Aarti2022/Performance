@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # List of URLs 
-declare -a urls=("https://fasb.org/" "https://fasb.org/about-us" "https://fasb.org/about-us/standard-setting-process" "https://fasb.org/about-us/post-implementation-review-process" "https://fasb.org/about-us/board-members" "https://fasb.org/standards/accounting-standard-updates" "https://fasb.org/standards/accounting-standard-updated-effective-date" "https://fasb.org/projects/current-projects" "https://fasb.org/projects/recently-completed-projects")
+declare -a urls=("https://www.gasb.org/" "https://www.gasb.org/about-us" "https://www.gasb.org/about-us/board-members" "https://www.gasb.org/about-us/governmental-accounting-standards-advisory-council" "https://www.gasb.org/academics" "https://www.gasb.org/standards-and-guidance" "https://www.gasb.org/standards-and-guidance/pronouncements" "https://www.gasb.org/projects/current-projects" "https://www.gasb.org/projects/other-research-and-staff-projects")
 
 # Loop through URLs
 for url in "${urls[@]}" 
