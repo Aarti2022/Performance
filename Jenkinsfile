@@ -23,18 +23,18 @@ pipeline {
             }
         }
         
-        stage('Archive Report') {
-            steps {
+        // stage('Archive Report') {
+            // steps {
                 // Archive the generated report
-                archiveArtifacts artifacts: 'Desktop/Python_Script/reports/**'
-            }
-        }
+                // archiveArtifacts artifacts: 'Desktop/Python_Script/reports/**'
+            // }
+        // }
         
-        stage('Publish HTML Report') {
-            steps {
-                // Publish the generated HTML report
-                publishHTML([reportDir: 'Desktop/Python_Script/reports', reportFiles: 'index.html', reportName: 'Chrome Report'])
-            }
-        }
-    }
-}
+//         stage('Publish HTML Report') {
+//             steps {
+//                 // Publish the generated HTML report
+//                 publishHTML([reportDir: 'Desktop/Python_Script/reports', reportFiles: 'index.html', reportName: 'Chrome Report'])
+//             }
+//         }
+//     }
+// }
