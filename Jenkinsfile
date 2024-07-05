@@ -11,18 +11,16 @@ pipeline {
         
         stage('Run Script') {
             steps {
-                 Execute the shell script
+                // Execute the shell script
                 script {
                     if (isUnix()) {
-                        sh 'test.sh'
+                        sh './test.sh'
                     } 
                     // else {
-                    //     bat 'bat.sh'
+                    //     bat 'test.bat'
                     // }
                 }
             }
         }
     }
-    
-        
-        
+}
