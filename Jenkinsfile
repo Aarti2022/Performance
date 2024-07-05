@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+ environment {
+        OUTPUT_PATH = 'C:\\Users\\arti.tripathi\\Desktop\\Python_Script\\Reports'
+}
     stages {
         stage('Checkout') {
             steps {
@@ -16,9 +18,10 @@ pipeline {
                     if (isUnix()) {
                         sh './test.sh'
                     } 
-                    // else {
-                    //     bat 'test.bat'
-                    // }
+					// else
+     //                {
+     //                    bat 'test.bat'
+     //                }
                 }
             }
         }
