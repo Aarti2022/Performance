@@ -20,7 +20,7 @@ pipeline {
                 //sh 'chmod +x ./test.sh'
                 
                 // Execute the script using the full path to the shell
-                sh '/bin/bash ./test.sh'
+                sh 'sh C:/Users/arti.tripathi/Downloads/Data/Performance-1/test.sh'
                     
 					// else
      //                {
