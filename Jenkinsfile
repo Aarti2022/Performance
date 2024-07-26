@@ -16,16 +16,16 @@ pipeline {
                 // Execute the shell script
                 script {
                     
-                         // Ensure the script has execute permissions
-                //sh 'chmod +x ./test.sh'
-                
-                // Execute the script using the full path to the shell
-                sh 'sh C:/Users/arti.tripathi/Downloads/Data/Performance-1/test.sh'
-                    
-					// else
-     //                {
-     //                    bat 'test.bat'
-     //                }
+                 powershell '''
+                    # Navigate to the script directory
+                    cd C:\\Users\\arti.tripathi\\Downloads\\Data\\Performance-1
+
+                    # Ensure the script has execute permissions (optional)
+                    icacls test.sh /grant Everyone:F
+
+                    # Execute the script
+                    ./test.sh
+                '''
                 }
             }
         }
