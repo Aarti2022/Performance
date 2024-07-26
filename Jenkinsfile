@@ -16,7 +16,11 @@ pipeline {
                 // Execute the shell script
                 script {
                     
-                        sh './test.sh'
+                         // Ensure the script has execute permissions
+                //sh 'chmod +x ./test.sh'
+                
+                // Execute the script using the full path to the shell
+                sh '/bin/bash ./test.sh'
                     
 					// else
      //                {
