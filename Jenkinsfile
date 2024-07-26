@@ -1,7 +1,7 @@
 pipeline {
     agent any
  environment {
-        OUTPUT_PATH = 'C:\\Users\\arti.tripathi\\Desktop\\Python_Script\\Reports'
+        OUTPUT_PATH = 'C:\\Users\\arti.tripathi\\Desktop\\Python_Script\\Results'
 }
     stages {
         stage('Checkout') {
