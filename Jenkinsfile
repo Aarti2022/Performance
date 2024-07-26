@@ -15,9 +15,9 @@ pipeline {
             steps {
                 // Execute the shell script
                 script {
-                    if (isUnix()) {
+                    
                         sh './test.sh'
-                    } 
+                    
 					// else
      //                {
      //                    bat 'test.bat'
