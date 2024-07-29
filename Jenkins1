@@ -1,15 +1,33 @@
 pipeline {
     agent any
 
+    environment {
+        // Define the output directory where reports will be saved
+        OUTPUT_DIR = 'generatedreport'
+    }
+
     stages {
         stage('Checkout') {
             steps {
+                // Checkout source code from version control
                 checkout scm
+            }
+        }
+
+        stage('Prepare Output Directory') {
+            steps {
+                // Ensure the output directory exists
+                powershell '''
+                    if (-not (Test-Path -Path "$env:OUTPUT_DIR")) {
+                        New-Item -ItemType Directory -Path "$env:OUTPUT_DIR"
+                    }
+                '''
             }
         }
 
         stage('Run PowerShell Script') {
             steps {
+                // Run the PowerShell script
                 powershell script: 'C:\Users\arti.tripathi\Desktop\Python_Script\script.ps1'
             }
         }
@@ -17,6 +35,10 @@ pipeline {
 
     post {
         always {
+            // Archive the generated reports
+            archiveArtifacts artifacts: "${env.OUTPUT_DIR}/**/*.html", allowEmptyArchive: true
+
+            // Print a completion message
             echo 'Pipeline completed.'
         }
     }
