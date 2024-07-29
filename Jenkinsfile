@@ -1,7 +1,7 @@
 pipeline {
     agent any
  environment {
-        OUTPUT_PATH = 'C:\Users\arti.tripathi\Desktop\Python_Script\Generatedreport'
+        OUTPUT_PATH = 'C:\\Users\\arti.tripathi\\Desktop\\Python_Script\\Results'
 }
     stages {
         stage('Checkout') {
@@ -18,13 +18,13 @@ pipeline {
                     
                  powershell '''
                     # Navigate to the script directory
-                    C:\Users\arti.tripathi\Desktop\Python_Script\script.ps1
+                    cd C:\\Users\\arti.tripathi\\Downloads\\Data\\Performance-1
 
                     # Ensure the script has execute permissions (optional)
-                    icacls script.ps1 /grant Everyone:F
+                    icacls test.sh /grant Everyone:F
 
                     # Execute the script
-                    ./script.ps1
+                    ./test.sh
                 '''
                 }
             }
