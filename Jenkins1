@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Run PowerShell Script') {
+            steps {
+                powershell script: 'C:\Users\arti.tripathi\Desktop\Python_Script\script.ps1'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline completed.'
+        }
+    }
+}
