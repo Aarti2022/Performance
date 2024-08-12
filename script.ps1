@@ -11,13 +11,21 @@ $urls = @(
     "https://fasb.org/projects/recently-completed-projects"
 )
 
-# Loop through URLs
+$lighthousePath = "C:\Users\arti.tripathi\AppData\Roaming\npm\lighthouse.cmd" 
 foreach ($url in $urls) {
     Write-Output "Generating report for $url"
-    # Generate file name from URL
     $fileName = ($url -replace "https?://", "").Replace("/", "_") + ".html"
-    # Run Lighthouse and generate HTML report
-    & "Lighthouse" $url --output html --output-path "C:\Users\arti.tripathi\Desktop\Python_Script\Generatedreport\$fileName"
+    & $lighthousePath $url --output html --output-path "C:\Users\arti.tripathi\Desktop\Python_Script\Generatedreport\$fileName" 
 }
+ Write-Output "Reports generated successfully!"
 
-Write-Output "Reports generated successfully!"
+# Loop through URLs   
+# foreach ($url in $urls) {
+#     Write-Output "Generating report for $url"
+#     # Generate file name from URL
+#     $fileName = ($url -replace "https?://", "").Replace("/", "_") + ".html"
+#     # Run Lighthouse and generate HTML report
+#     & "Lighthouse" $url --output html --output-path "C:\Users\arti.tripathi\Desktop\Python_Script\Generatedreport\$fileName"
+# }
+
+# Write-Output "Reports generated successfully!"
